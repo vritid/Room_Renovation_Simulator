@@ -1,0 +1,195 @@
+import java.util.Scanner;
+
+public class PaintShop {
+
+//Name: Vriti Dahiya
+//Date: June 14, 2023
+/*Purpose: To write a program which serves as a paint calculator that calculates the
+
+required number of paint buckets and total cost based on wall dimensions, while also
+
+offering a promotional opportunity for rewards program members to win a free car paint
+
+job.*/
+
+public static void main(String[] args) {
+Scanner input = new Scanner(System.in);
+
+//----------------------------------------------------------------------------------------------------------
+----------------------//
+
+//Introduction
+System.out.println("\t\t\t\t\t Welcome to Paint Calculator by PaintMania!\n\n\t\t\t\t\tThis
+program will help you figure out how many ");
+System.out.println("\t\t\t\t\tbuckets of paint you will need to paint your room, ");
+System.out.println("\t\t\t\t\talong with the total cost to buy it from our store.\n");
+
+//----------------------------------------------------------------------------------------------------------
+----------------------//
+
+//Get the name of the room
+System.out.print("Enter the name/identifier of your room: ");
+String roomName = input.next();
+
+//Get the width and height of the wall
+System.out.println("Enter the width of the wall in meters (number only): ");
+double width = input.nextDouble();
+System.out.println("Enter the height of the wall in meters (number only): ");
+double height = input.nextDouble();
+
+//----------------------------------------------------------------------------------------------------------
+----------------------//
+
+//Calculate the Surface Area of the wall
+double surfaceArea = calculateSurfaceArea(width, height);
+
+//Calculate the number of buckets of paint neededS
+int numBuckets = calculateNumBuckets(surfaceArea);
+
+//Calculate the cost of painting the wall
+double paintCost = calculatePaintCost(numBuckets);
+
+//Calculate the tax
+double tax = calculateTax(paintCost);
+
+//Calculate the total cost
+double totalCost = calculateTotalCost(paintCost, tax);
+
+//----------------------------------------------------------------------------------------------------------
+----------------------//
+
+//Promotional Strategy (free paint job)
+System.out.println("Are you a member of our rewards program?");
+String responseRewards = input.next();
+
+//If part of the rewards program
+if (responseRewards.equalsIgnoreCase("yes")) {
+System.out.println("\nCongratulations! You're eligible to spin the wheel to win a free paint job
+
+for your car!");
+
+System.out.println("If the wheel lands on a number greater than 50, you win!");
+System.out.println("If it lands on a number less than 50, you don't win a free paint job for
+
+your car.");
+
+//Spin the wheel
+int randomNumber = (int) (Math.random() * 100) + 1;
+System.out.println("\nEnter any character to spin the wheel:");
+String spin = input.next();
+
+spin.compareToIgnoreCase(spin);
+System.out.println("\nThe wheel landed on the number: " + randomNumber);
+
+//If number is less than 50
+if (randomNumber<50) {
+System.out.println("Sorry you don't win a free paint job for your car.");
+}//if
+
+//If number is greater than 50
+else if (randomNumber>50) {
+System.out.println("Congrats! You won a free paint job for your car!");
+System.out.println("Fill out the following form, and we will create a customized name to paint
+
+on your car!");
+
+//Input: Collect the data for car paint job
+System.out.println ("Enter a word you would like to be displayed on your car (atleast 3
+
+characters): ");
+
+String wordForcar = input.next();
+
+System.out.println ("Enter the first 3 letters of your name: ");
+String personName = input.next();
+
+System.out.println ("Enter 2 digits you would like displayed on your car: ");
+String carNumber = input.next();
+System.out.println ("\n");
+System.out.println ("*************************************************************\n");
+
+//Process the data (create the customized word)
+String firstLetterOfWordUppercase = wordForcar.substring(0,1).toUpperCase();
+String str1 = wordForcar.substring(0,3).toLowerCase();
+
+String restOfPlayerName = str1.substring(1);
+String personNameLetters = personName.substring(0,3);
+String blankJerseyNumber = carNumber.replaceFirst(carNumber.substring(0,2), "");
+String str2 = firstLetterOfWordUppercase+restOfPlayerName;
+String str3 = str2+personNameLetters;
+String str4 = str3+blankJerseyNumber;
+int numChars = str1.length();
+String blankSpace = str1.replaceAll(str1.substring(numChars-3), "");
+String blankSpace2 = "";
+
+int lastCharacterOfPaintJobName = wordForcar.indexOf("a");
+String str5 = str4+lastCharacterOfPaintJobName;
+String restOfNameLowercase = str5.substring(1,7).toLowerCase();
+String finalPaintJobName = firstLetterOfWordUppercase+restOfNameLowercase;
+System.out.println("Here's the customized name that we will print on your car:
+
+"+finalPaintJobName+"\n");
+}//else if
+}//if
+
+//If not part of the rewards program
+else if (responseRewards.equalsIgnoreCase("no")) {
+System.out.println("Sorry, you're not eligible to spin the wheel to win a free paint job.");
+}//else if
+
+//----------------------------------------------------------------------------------------------------------
+----------------------//
+
+//Output: Print the values and total costs
+System.out.println("\nPaintMania - " + roomName);
+System.out.println("========================================");
+
+System.out.println("Wall Dimensions:");
+System.out.println("Width: " + width + " meters");
+System.out.println("Height: " + height + " meters");
+System.out.println("----------------------------------------");
+System.out.println("Paint Calculation:");
+System.out.println("Surface Area: " + surfaceArea + " square meters");
+System.out.println("Number of Buckets: " + numBuckets);
+System.out.println("Paint Cost: $" + paintCost);
+System.out.println("Tax: $" + tax);
+System.out.println("Total Cost: $" + totalCost);
+
+}//main
+
+//----------------------------------------------------------------------------------------------------------
+----------------------//
+
+//Class Methods//
+
+// Method to calculate the Surface Area of the wall
+public static double calculateSurfaceArea(double width, double height) {
+
+return 2 * (width + height);
+}//calculateSurfaceArea
+
+// Method to calculate the number of buckets of paint needed
+public static int calculateNumBuckets(double surfaceArea) {
+return (int) Math.ceil(surfaceArea / 4);
+}//calculateNumBuckets
+
+// Method to calculate the cost of painting the wall
+public static double calculatePaintCost(int numBuckets) {
+return numBuckets * 17.50;
+}//calculatePaintCost
+
+// Method to calculate the tax
+public static double calculateTax(double amount) {
+return amount * 0.13;
+}//calculateTax
+
+// Method to calculate the total cost
+public static double calculateTotalCost(double paintCost, double tax) {
+
+return paintCost + tax;
+}//calculateTotalCost
+
+//----------------------------------------------------------------------------------------------------------
+----------------------//
+
+}//PaintShop
