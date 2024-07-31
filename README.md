@@ -4,7 +4,7 @@ Room Renovation Simulator
 Scenario: This program simulates the experience of purchasing paint, to renovate the user’s room, using mainly string and numeric
 manipulation, as well as class methods with return values. It includes asking the user the dimensions of the room they want painted,
 as well as whether or not they’re part of the PaintMania rewards program. The user is eligible to get a free paint job by the company if
-they are a member of the rewards program. This program also prints the receipt of the purchase, including the dimensions and the
+they are a member of the rewards program by spinning a wheel. This program also prints the receipt of the purchase, including the dimensions and the
 number of paint buckets required to complete the job.
 
 
