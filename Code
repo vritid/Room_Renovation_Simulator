@@ -1,3 +1,10 @@
+Copyright and Usage Information
+===============================
+All rights reserved. You may not use, modify, or distribute this code without written permission from the author.
+
+This file is Copyright (c) 2025 Vriti Dahiya
+===============================
+
 import java.util.Scanner;
 
 public class PaintShop {
