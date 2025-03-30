@@ -1,5 +1,7 @@
 # Room Renovation Simulator
 
+Language: Java
+
 Scenario: This program simulates the experience of purchasing paint, to renovate the user’s room, using mainly string and numeric
 manipulation, as well as class methods with return values. It includes asking the user the dimensions of the room they want painted,
 as well as whether or not they’re part of the PaintMania rewards program. The user is eligible to get a free paint job by the company if
