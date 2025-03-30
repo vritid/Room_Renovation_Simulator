@@ -1,5 +1,4 @@
-# fav-project
-Room Renovation Simulator 
+# Room Renovation Simulator
 
 Scenario: This program simulates the experience of purchasing paint, to renovate the user’s room, using mainly string and numeric
 manipulation, as well as class methods with return values. It includes asking the user the dimensions of the room they want painted,
